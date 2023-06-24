@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Server</title>
+</head>
+<style>
+h1{
+    text-align: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <h1 class="text-center">Server Start</h1>
+    <button class="btn-primary" type="submit" name="filter" value="all">All</button>
+    <button type="submit" name="filter" value="all">&#8635;</button>
+    <br><br>
+
+<table>
+    <tr>
+    <th>User Id</th>
+    <th>Web Page URL</th>
+    <th>DateTime</th>
+  </tr>
+    {% for one in history %}
+  <tr>
+    <td>{{ one.user_id }}</td>
+    <td>{{ one.url}}</td>
+    <td>{{ one.date}}</td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+
